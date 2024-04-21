@@ -25,7 +25,7 @@ export default function Post() {
             });
             return;
         }
-        if (post.description.length > 300) {
+        if (post.description.length > 1000) {
             toast.error("Description Too Long. 😢", {
                 position: "top-center",
                 autoClose: 1500,
@@ -85,8 +85,8 @@ export default function Post() {
                         onChange={(e) => setPost({ ...post, description: e.target.value })}
                         className="bg-gray-800 h-48 w-full text-white rounded-lg p-2 text-sm resize-none focus:outline-none">
                     </textarea>
-                    <p className={`text-cyan-600 font-medium text-sm ${post.description.length > 300 ? "text-red-600" : ''}`}>
-                        {post.description.length}/300
+                    <p className={`text-cyan-600 font-medium text-sm ${post.description.length > 1000 ? "text-red-600" : ''}`}>
+                        {post.description.length}/1000
                     </p>
                 </div>
                 <button type="submit" className="w-full p-2 my-2 bg-cyan-600 text-white font-medium rounded-lg text-sm">Submit</button>

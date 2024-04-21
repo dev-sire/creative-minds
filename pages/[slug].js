@@ -14,7 +14,14 @@ export default function Details(){
     const submitMessage = async() => {
         if(!auth.currentUser) return router.push("/auth/login");
         if(!messages){
-            toast.error("Don't Leave An Empty Message", {
+            toast.error("Don't Leave An Empty Message 😐", {
+                position: "top-center",
+                autoClose: 1500,
+            });
+            return;
+        }
+        if(messages.length > 300){
+            toast.error("Message Too Long 😐", {
                 position: "top-center",
                 autoClose: 1500,
             });
