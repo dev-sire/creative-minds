@@ -8,7 +8,7 @@ import { collection, deleteDoc, doc, onSnapshot, query, where } from "firebase/f
 import { BsTrash2Fill } from "react-icons/bs";
 import { AiFillEdit } from "react-icons/ai";
 
-export default function dashboard(){
+export default function Dashboard(){
     const route = useRouter();
     const[user, loading] = useAuthState(auth);
     const[posts, setPosts] = useState([]);

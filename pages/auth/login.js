@@ -1,17 +1,17 @@
 import { FcGoogle } from "react-icons/fc";
-import { signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+import { GoogleAuthProvider, signInWithRedirect } from "firebase/auth";
 import { auth } from "@/utils/firebase";
 import { useRouter } from "next/router";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useEffect } from "react";
 
-export default function login(){
+export default function Login(){
     const googleProvider = new GoogleAuthProvider();
     const[user, loading] = useAuthState(auth);
     const route = useRouter();
     const googleLogin = async() => {
         try{
-            const result = await signInWithPopup(auth, googleProvider);
+            const result = await signInWithRedirect(auth, googleProvider);
             route.push("/");
             
         }catch(error){

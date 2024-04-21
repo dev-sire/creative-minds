@@ -69,8 +69,7 @@ export default function Details(){
                                 </div>
                                 <h2>{message.messages}</h2>
                             </div>
-                        ))}
-                        
+                        ))}             
                     </div>
                 </div>
             </Message>
