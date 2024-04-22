@@ -25,6 +25,7 @@ export default function Home() {
   return (
     <>
     <Head>
+      <link rel="icon" type="image/png" href="/favicon.png" />
       <title>Creative Minds | Share Your Thoughts with Others | By DevSire</title>
     </Head>
     <div className="my-12 text-md font-medium">
