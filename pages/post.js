@@ -73,7 +73,7 @@ export default function Post() {
     }, [user, loading]);
 
     return (
-        <div className="my-20 p-12 shadow-lg rounded-lg max-w-md mx-auto">
+        <div className="dark:bg-[#030c1e] my-20 p-12 shadow-lg rounded-lg max-w-md mx-auto">
             <form onSubmit={submitPost}>
                 <h1 className="text-2xl font-bold">
                     {post.hasOwnProperty("id") ? 'Edit Your Post' : 'Create A New Post'}
@@ -89,7 +89,7 @@ export default function Post() {
                         {post.description.length}/1000
                     </p>
                 </div>
-                <button type="submit" className="w-full p-2 my-2 bg-cyan-600 text-white font-medium rounded-lg text-sm">Submit</button>
+                <button type="submit" className="w-full p-2 my-2 bg-cyan-600 dark:bg-cyan-700 text-white font-medium rounded-lg text-sm">Submit</button>
             </form>
         </div>
     );

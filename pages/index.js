@@ -2,6 +2,7 @@ import Message from "@/components/Message";
 import { useEffect, useState } from "react";
 import { db } from "@/utils/firebase";
 import { collection, onSnapshot, orderBy, query } from "firebase/firestore";
+import ThemeSwitch from "@/components/ThemeSwitcher";
 import Link from "next/link";
 import Head from "next/head";
 
@@ -29,7 +30,10 @@ export default function Home() {
       <title>Creative Minds | Share Your Thoughts with Others | By DevSire</title>
     </Head>
     <div className="my-12 text-md font-medium">
-      <h2 className="font-bold text-lg">See what other people are saying</h2>
+      <div className="flex justify-between">
+        <h2 className="font-bold text-lg">See what other people are saying</h2>
+        <ThemeSwitch />
+      </div>
       {allPosts.map((post) => {
         return (
           <Message key={post.id} {...post}>

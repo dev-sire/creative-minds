@@ -43,13 +43,13 @@ export default function Dashboard(){
                             <div className="flex gap-4">
                                 <button 
                                     onClick={() => deletePost(post.id)}
-                                    className="flex items-center justify-center text-pink-600 gap-2 py-2 text-sm"
+                                    className="flex items-center justify-center text-pink-600 dark:text-pink-400 gap-2 py-2 text-sm"
                                 >
                                     <BsTrash2Fill className="text-2xl"/>
                                     Delete
                                 </button>
                                 <Link href={{pathname: "/post", query: post}}>
-                                    <button className="flex items-center justify-center text-teal-600 gap-2 py-2 text-sm">
+                                    <button className="flex items-center justify-center text-teal-600 dark:text-teal-400 gap-2 py-2 text-sm">
                                         <AiFillEdit className="text-2xl"/>
                                         Edit
                                     </button>

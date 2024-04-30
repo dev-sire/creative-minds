@@ -64,15 +64,15 @@ export default function Details() {
                             placeholder="Send A Message 😃"
                             className="bg-gray-800 text-white w-full p-2 text-sm rounded-md focus:outline-none"
                         />
-                        <button onClick={submitMessage} className="bg-cyan-500 text-white py-2 px-4 text-sm ml-2 rounded-md">Submit</button>
+                        <button onClick={submitMessage} className="bg-cyan-500 dark:bg-cyan-700 text-white py-2 px-4 text-sm ml-2 rounded-md">Submit</button>
                     </div>
                     <div className="py-6">
                         <h2 className="font-bold">All Comments</h2>
                         {allMessages?.map((message) => (
-                            <div className="bg-white border-2 p-4 m-4" key={message.time}>
+                            <div className="bg-white dark:bg-[#030c1e] border-2 p-4 m-4" key={message.time}>
                                 <div className="flex items-center gap-2 mb-4">
                                     <img className="rounded-full w-10" src={message.avatar} alt="avatar" />
-                                    {message.userName === "Aman Shahid" ? <h2 className="text-cyan-800">Aman Shahid (Dev)</h2> : <h2>{message.userName}</h2>}
+                                    {message.userName === "Aman Shahid" ? <h2 className="text-cyan-800 dark:text-amber-400">Aman Shahid (Dev)</h2> : <h2>{message.userName}</h2>}
                                 </div>
                                 <h2>{message.messages}</h2>
                             </div>
