@@ -7,9 +7,12 @@ export default function Nav() {
 
   return (
     <nav className="flex justify-between items-center py-10">
-      <Link href="/">
-        <button className="text-xl font-medium">Creative Minds</button>
-      </Link>
+      <div className="flex py-2">
+        <img src="/logo.png" width={34} height={34} className="hidden md:block md:mr-4" alt="logo" />
+        <Link href="/">
+          <button className="text-xl font-medium">Creative Minds</button>
+        </Link>
+      </div>
       <ul className="flex items-center gap-10">
         {!user && (
           <Link href={"/auth/login"}>
