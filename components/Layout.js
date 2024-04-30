@@ -1,5 +1,5 @@
 import Nav from "./Nav";
-import { Providers } from "@/pages/Providers";
+import Providers from "@/pages/Providers";
 
 export default function Layout({ children }) {
   return (
