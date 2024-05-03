@@ -34,8 +34,14 @@ export default function Dashboard(){
     }, [user, loading])
 
     return(
-        <div>
-            <h1 className="text-lg font-medium">Your Posts</h1>
+        <div className="my-12">
+            <div className="flex justify-between items-center">
+                {user && <h1 className="text-xl font-bold mb-4">Welcome, {user.displayName}!</h1>}
+                <Link href={"/devNote"}>
+                    <h1 className="cursor-pointer font-medium text-md">Developer`s Note</h1>
+                </Link>
+            </div>
+
             <div>
                 {posts.map((post) => {
                     return (

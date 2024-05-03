@@ -1,5 +1,5 @@
 import { FcGoogle } from "react-icons/fc";
-import { GoogleAuthProvider, signInWithRedirect } from "firebase/auth";
+import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import { auth } from "@/utils/firebase";
 import { useRouter } from "next/router";
 import { useAuthState } from "react-firebase-hooks/auth";
@@ -11,7 +11,8 @@ export default function Login(){
     const route = useRouter();
     const googleLogin = async() => {
         try{
-            const result = await signInWithRedirect(auth, googleProvider);
+            const result = await signInWithPopup(auth, googleProvider);
+            console.log(result);
             route.push("/");
             
         }catch(error){
@@ -22,12 +23,12 @@ export default function Login(){
         if(user){
             route.push("/");
         }else{
-            console.log("Login in now!")
+            console.log("Login in now!");
         }
     }, [user])
 
     return(
-        <div className="shadow-xl mt-32 p-10 text-gray-700 rounded-lg">
+        <div className="shadow-xl mt-32 p-10 text-gray-700 rounded-lg dark:bg-[#011222] dark:text-white">
             <h2 className="text-2xl font-medium">Join Today!</h2>
             <div className="py-4">
                 <h3 className="py-4">Sign in with of our Providers</h3>

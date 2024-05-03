@@ -69,7 +69,7 @@ export default function Details() {
                     <div className="py-6">
                         <h2 className="font-bold">All Comments</h2>
                         {allMessages?.map((message) => (
-                            <div className="bg-white dark:bg-[#030c1e] border-2 p-4 m-4" key={message.time}>
+                            <div className="bg-white dark:bg-[#011222] border-2 p-4 m-4" key={message.time}>
                                 <div className="flex items-center gap-2 mb-4">
                                     <img className="rounded-full w-10" src={message.avatar} alt="avatar" />
                                     {message.userName === "Aman Shahid" ? <h2 className="text-cyan-800 dark:text-amber-400">Aman Shahid (Dev)</h2> : <h2>{message.userName}</h2>}

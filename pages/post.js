@@ -8,7 +8,7 @@ import { toast } from "react-toastify";
 export default function Post() {
     //State that stores form data
 
-    const [post, setPost] = useState({ description: "" });
+    const [post, setPost] = useState({ title: "", description: "" });
     const [user, loading] = useAuthState(auth);
     const route = useRouter();
     const routeData = route.query;
@@ -32,6 +32,13 @@ export default function Post() {
             });
             return;
         }
+        if (post.title.length > 100) {
+            toast.error("Title Too Long. 😢", {
+                position: "top-center",
+                autoClose: 1500,
+            });
+            return;
+        }
 
         // If it is an existing post, update it using docRef
         if (post?.hasOwnProperty("id")) {
@@ -50,7 +57,7 @@ export default function Post() {
                 avatar: user.photoURL,
                 username: user.displayName,
             });
-            setPost({ description: "" });
+            setPost({ title: "", description: "" });
             toast.success("Post has been Made 🎉",{
                 position: "top-center",
                 autoClose: 1500,
@@ -64,7 +71,7 @@ export default function Post() {
         if (loading) return;
         if (!user) route.push("/auth/login");
         if (routeData.id) {
-            setPost({ description: routeData.description, id: routeData.id });
+            setPost({title: routeData.title, description: routeData.description, id: routeData.id });
         }
     }
 
@@ -73,12 +80,21 @@ export default function Post() {
     }, [user, loading]);
 
     return (
-        <div className="dark:bg-[#030c1e] my-20 p-12 shadow-lg rounded-lg max-w-md mx-auto">
+        <div className="dark:bg-[#011222] my-[4.5rem] p-12 shadow-lg rounded-lg max-w-md mx-auto">
             <form onSubmit={submitPost}>
                 <h1 className="text-2xl font-bold">
                     {post.hasOwnProperty("id") ? 'Edit Your Post' : 'Create A New Post'}
                 </h1>
                 <div className="py-2">
+                    <h3 className="text-lg font-medium py-2">Title</h3>
+                    <input 
+                        value={post.title}
+                        onChange={(e) => setPost({...post, title: e.target.value})}
+                        className="bg-gray-800 w-full h-8 p-1 text-white rounded-md text-sm focus:outline-none"
+                    />
+                    <p className={`text-cyan-600 font-medium text-sm mt-2 ${post.title.length > 100 ? "text-red-600" : ''}`}>
+                        {post.title.length}/100
+                    </p>
                     <h3 className="text-lg font-medium py-2">Description</h3>
                     <textarea
                         value={post.description}

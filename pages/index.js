@@ -2,7 +2,6 @@ import Message from "@/components/Message";
 import { useEffect, useState } from "react";
 import { db } from "@/utils/firebase";
 import { collection, onSnapshot, orderBy, query } from "firebase/firestore";
-import ThemeSwitch from "@/components/ThemeSwitcher";
 import Link from "next/link";
 import Head from "next/head";
 
@@ -31,14 +30,13 @@ export default function Home() {
     </Head>
     <div className="my-12 text-md font-medium">
       <div className="flex justify-between">
-        <h2 className="font-bold text-lg">See what other people are saying</h2>
-        <ThemeSwitch />
+        <h2 className="font-bold text-lg md:text-xl mb-4">See what other people are saying</h2>
       </div>
       {allPosts.map((post) => {
         return (
           <Message key={post.id} {...post}>
             <Link href={{ pathname: `/${post.id}`, query: {...post} }}>
-              <button>
+              <button className="bg-cyan-500 dark:bg-cyan-700 text-white mt-2 p-2 rounded-md">
                 {post.comments?.length > 0 ? post.comments?.length : 0} Comments
               </button>
             </Link>
