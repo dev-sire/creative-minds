@@ -35,7 +35,7 @@ export default function Dashboard(){
 
     return(
         <div className="my-12">
-            <div className="flex justify-between items-center">
+            <div className="flex flex-col md:flex-row p-4 justify-between items-center">
                 {user && <h1 className="text-xl font-bold mb-4">Welcome, {user.displayName}!</h1>}
                 <Link href={"/devNote"}>
                     <h1 className="cursor-pointer font-medium text-md">Developer`s Note</h1>
