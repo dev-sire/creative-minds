@@ -14,21 +14,21 @@
 
 ### Getting Started
 
-1. Clone The Repository:
+**1. Clone The Repository:**
 ```Bash
 git clone https://github.com/dev-sire/creative-minds.git
 ```
-2. Install Dependencies:
+**2. Install Dependencies:**
 
 ```bash
 npm install
 ``` 
 
-3. Create a Firebase project and configure Environment Variables:     
+**3. Create a Firebase project and configure Environment Variables:**     
  
 Follow the instructions at [Firebase Documentation](https://firebase.google.com/docs/projects/api/workflow_set-up-and-manage-project ) to set up a Firebase project. You'll need to create a `.env.local` file in the root directory of your project and add your Firebase configuration variables securely. Refer to the Next.js documentation for environment variables: [Next.js Docs](https://nextjs.org/docs/pages/building-your-application/configuring/environment-variables.)
 
-4. Run the development server:   
+**4. Run the development server:**   
 
 `npm run dev` This will start the development server at `http://localhost:3000` by default. 
 
